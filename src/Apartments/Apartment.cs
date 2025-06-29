@@ -1,9 +1,9 @@
-﻿namespace Bookify.Domain.Apartments;
+﻿using Bookify.Domain.Abstractions;
 
-public sealed class Apartment
+namespace Bookify.Domain.Apartments;
+
+public sealed class Apartment : Entity
 {
-    public Guid Id { get; private set; }
-
     public string Name { get; private set; }
     
     public string Description { get; private set; }
@@ -29,4 +29,8 @@ public sealed class Apartment
     public DateTime? LastBookedOnUtc { get; private set; }
 
     public List<Amenity> Amenities { get; private set; } = [];
+
+    public Apartment(Guid id) : base(id)
+    {
+    }
 }
