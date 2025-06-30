@@ -52,8 +52,9 @@ public sealed class Booking : Entity
         Guid userId,
         DateRange duration,
         DateTime utcNow,
-        PricingDetails pricingDetails)
+        PricingService pricingService)
     {
+        var pricingDetails = pricingService.CalculatePrice(apartment, duration);
         var booking = new Booking(
             Guid.CreateVersion7(),
             apartment.Id,
@@ -97,7 +98,7 @@ public sealed class Booking : Entity
         return Result.Success();
     }
 
-    public Result Commplete(DateTime utcNow)
+    public Result Complete(DateTime utcNow)
     {
         if (Status != BookingStatus.Confirmed)
         {
