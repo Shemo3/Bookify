@@ -4,11 +4,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Bookify.Application.Abstractions.Behaviors;
 
-public class LogginBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IBaseCommand
+public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IBaseCommand
 {
     private readonly ILogger<TRequest> _logger;
 
-    public LogginBehavior(ILogger<TRequest> logger)
+    public LoggingBehavior(ILogger<TRequest> logger)
     {
         _logger = logger;
     }
