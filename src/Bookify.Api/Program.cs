@@ -31,6 +31,8 @@ public class Program
         }
 
         app.UseHttpsRedirection();
+        
+        app.UseCustomExceptionHandler();
 
         app.MapControllers();
 
