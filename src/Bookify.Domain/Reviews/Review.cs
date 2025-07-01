@@ -6,6 +6,18 @@ namespace Bookify.Domain.Reviews;
 
 public sealed class Review : Entity
 {
+    public Guid ApartmentId { get; private set; }
+
+    public Guid BookingId { get; private set; }
+
+    public Guid UserId { get; private set; }
+
+    public Rating Rating { get; private set; }
+
+    public Comment Comment { get; private set; }
+
+    public DateTime CreatedOnUtc { get; private set; }
+
     private Review(
         Guid id,
         Guid apartmentId,
@@ -24,17 +36,10 @@ public sealed class Review : Entity
         CreatedOnUtc = createdOnUtc;
     }
 
-    public Guid ApartmentId { get; private set; }
-
-    public Guid BookingId { get; private set; }
-
-    public Guid UserId { get; private set; }
-
-    public Rating Rating { get; private set; }
-
-    public Comment Comment { get; private set; }
-
-    public DateTime CreatedOnUtc { get; private set; }
+    private Review()
+    {
+        
+    }
 
     public static Result<Review> Create(
         Booking booking,

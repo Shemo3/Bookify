@@ -35,4 +35,9 @@ public sealed class Apartment : Entity
         CleaningFee = cleaningFee;
         Amenities = amenities;
     }
+
+    private Apartment()
+    {
+        
+    }
 }

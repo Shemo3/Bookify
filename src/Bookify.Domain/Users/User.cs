@@ -18,6 +18,11 @@ public class User : Entity
         Email = email;
     }
 
+    private User()
+    {
+        
+    }
+
     public static User Create(FirstName firstName, LastName lastName, Email email)
     {
         var user = new User(Guid.CreateVersion7(), firstName, lastName, email);
