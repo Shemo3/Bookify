@@ -27,7 +27,7 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
             app.ApplyMigrations();
-            app.SeedData();
+            //app.SeedData();
         }
 
         app.UseHttpsRedirection();
