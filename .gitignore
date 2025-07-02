@@ -3,6 +3,11 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+#Keycloak
+.files
+
+.containers
+
 # dotenv files
 .env
 
