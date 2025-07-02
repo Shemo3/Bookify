@@ -10,6 +10,8 @@ public class User : Entity
     public LastName LastName { get; private set; }
     
     public Email Email { get; private set; }
+
+    public string IdentityId { get; private set; } = string.Empty;
     
     private User(Guid id, FirstName firstName, LastName lastName, Email email) : base(id)
     {
@@ -28,5 +30,10 @@ public class User : Entity
         var user = new User(Guid.CreateVersion7(), firstName, lastName, email);
         user.RaiseDomainEvent(new UserCreatedDomainEvent(user.Id));
         return user;
+    }
+
+    public void SetIdentityId(string identityId)
+    {
+        IdentityId = identityId;
     }
 }
