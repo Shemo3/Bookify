@@ -26,13 +26,19 @@ public static class DependencyInjection
         services.AddTransient<IEmailService, EmailService>();
 
         AddPersistence(services, configuration);
+        AddAuthentication(services, configuration);
+        return services;
+    }
 
+    private static void AddAuthentication(IServiceCollection services, IConfiguration configuration)
+    {
         services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer();
         services.Configure<AuthenticationOptions>(configuration.GetSection(AuthenticationOptions.SectionName));
         services.ConfigureOptions<JwtBearerOptionsSetup>();
         return services;
+        services.Configure<KeycloakOptions>(configuration.GetSection("Keycloak"));
     }
 
     private static void AddPersistence(IServiceCollection services, IConfiguration configuration)
